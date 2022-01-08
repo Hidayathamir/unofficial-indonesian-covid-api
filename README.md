@@ -4,7 +4,7 @@ Unofficial Indonesian Covid Api to know about current status of covid cases in I
 
 docs & live : [https://incovapi.deta.dev/docs](https://incovapi.deta.dev/docs)
 
-<!-- ![documentation](README_assets/docs.png) -->
+![documentation](README_assets/docs.png)
 
 # How To Run Locally
 1. Install requirements.
@@ -16,6 +16,9 @@ pip install -r requirements.txt
 uvicorn main:app
 ```
 3. Open browser and go to the url [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+
+# Docker Version
+Docker version can be found [here](https://hub.docker.com/r/hidayathamir/unofficial-indonesian-covid-api). You need to know how to run docker image and map docker host port to port 8000 in the container.
 
 # API Contract
 1. GET `https://<host>:<port>/api/v1/`. Entry point for all API, provide general information of covid cases.
