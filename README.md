@@ -37,7 +37,3 @@ Docker version can be found [here](https://hub.docker.com/r/hidayathamir/unoffic
 This project doesn't use any database, for every request it doing request to official api to get data and then use it to send response to user. If the official api makes changes to their api, then maybe this project will crash. <br>
 Also, I don't know if the official api has some kind of limit on how many requests, if any then this project can't handle more requests than the limit. <br>
 For future improvements I am looking for using database. then do daily update from official api.
-
-# Note For Nodeflux
-I create this project to complete the assignment `Software Engineer Internship Technical Assessment - Batch 2`. When I deployed the project to [deta](https://www.deta.sh/) I just found out that I made some kind of mistake. On your instructions you asked to do like this `?since=2020.03.02`, but I do this `?since=2020-03-02`. I think it doesn't matter, since our goal is to test my ability.<br>
-I also chose to use the `/api/v1` prefix because I thought it would be good to version-ing the api so that it is scalable.
