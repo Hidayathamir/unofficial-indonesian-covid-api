@@ -28,7 +28,7 @@ tags_metadata = [
 app = FastAPI(
     title="Unofficial Indonesian Covid Api",
     description=desc,
-    version="0.0.1",
+    version="0.0.2",
     contact={
         "name": "Hidayat",
         "url": "https://github.com/Hidayathamir",
@@ -49,7 +49,7 @@ async def root():
 @app.get("/api/v1/", tags=["index"])
 async def index():
     json_data = api.get_json_data()
-    _, res = api.index(json_data)
+    res = api.index(json_data)
     return res
 
 

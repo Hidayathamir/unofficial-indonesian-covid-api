@@ -35,22 +35,22 @@ def get_df() -> DataFrame:
     return df
 
 
-def index(df: DataFrame) -> Tuple[DataFrame, Dict[str, Any]]:
+def index(myjson: Dict[str, Any]) -> Dict[str, Any]:
     res = {
         "ok": True,
         "data": {
-            "total_positive": df["update"]["total"]["jumlah_positif"],
-            "total_recovered": df["update"]["total"]["jumlah_sembuh"],
-            "total_deaths": df["update"]["total"]["jumlah_meninggal"],
-            "total_active": df["update"]["total"]["jumlah_dirawat"],
-            "new_positive": df["update"]["penambahan"]["jumlah_positif"],
-            "new_recovered": df["update"]["penambahan"]["jumlah_sembuh"],
-            "new_deaths": df["update"]["penambahan"]["jumlah_meninggal"],
-            "new_active": df["update"]["penambahan"]["jumlah_dirawat"],
+            "total_positive": myjson["update"]["total"]["jumlah_positif"],
+            "total_recovered": myjson["update"]["total"]["jumlah_sembuh"],
+            "total_deaths": myjson["update"]["total"]["jumlah_meninggal"],
+            "total_active": myjson["update"]["total"]["jumlah_dirawat"],
+            "new_positive": myjson["update"]["penambahan"]["jumlah_positif"],
+            "new_recovered": myjson["update"]["penambahan"]["jumlah_sembuh"],
+            "new_deaths": myjson["update"]["penambahan"]["jumlah_meninggal"],
+            "new_active": myjson["update"]["penambahan"]["jumlah_dirawat"],
         },
         "message": "success",
     }
-    return df, res
+    return res
 
 
 def get_res_success() -> Dict[str, Any]:
@@ -87,7 +87,7 @@ def yearly(
     for i in a.index:
         res["data"].append(
             {
-                "month": str(i),
+                "year": str(i),
                 "positive": a.loc[i].positif.item(),
                 "recovered": a.loc[i].sembuh.item(),
                 "deaths": a.loc[i].meninggal.item(),
@@ -136,7 +136,7 @@ def monthly(
     for i in a.index:
         res["data"].append(
             {
-                "date": i.strftime("%Y-%m"),
+                "month": i.strftime("%Y-%m"),
                 "positive": a.loc[i].positif.item(),
                 "recovered": a.loc[i].sembuh.item(),
                 "deaths": a.loc[i].meninggal.item(),
